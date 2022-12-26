@@ -12,7 +12,7 @@ function App() {
       <Header id={id} setId={setId} />
       <div className="App">
         <Player id={id} />
-        <ColumnVideos id={id} />
+        <ColumnVideos id={id} setId={setId} />
       </div>
     </>
   );
