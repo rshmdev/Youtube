@@ -12,15 +12,15 @@ export const Header = ({ id, setId }) => {
 
   return (
     <header>
-      <div className="header-container">
-        <nav className="nav-logo">
+      <div className="header">
+        <nav className="header__nav__logo">
           <RxHamburgerMenu size={21} />
           <img width={90} src={logo} alt="youtube-logo" />
         </nav>
 
-        <div className="div-input">
+        <div className="header__input">
           <AiOutlineSearch
-            className="search-responsive"
+            className="input__icon__mobile"
             size={22}
             onClick={() => {
               setId(inputId);
@@ -28,16 +28,17 @@ export const Header = ({ id, setId }) => {
             }}
           />
           <input
-            className="input-search"
+            className="header_input_field"
             type="text"
             value={inputId}
+            placeholder="Digite o id do video desejado"
             onChange={(e) => {
               setInputid(e.target.value);
             }}
             name="search"
             id="input-search"
           />
-          <div className="search-button">
+          <div className="header__submit__button">
             <AiOutlineSearch
               size={22}
               onClick={() => {
@@ -48,13 +49,13 @@ export const Header = ({ id, setId }) => {
           </div>
         </div>
 
-        <nav className="nav-user">
+        <nav className="header__nav__user">
           <AiOutlineVideoCameraAdd size={21} />
           <IoNotificationsOutline size={21} />
           <img src={user} alt="user-logo" width={30} />
         </nav>
 
-        <nav className="nav-user-responsive">
+        <nav className="header__nav__user__mobile">
           <BsThreeDotsVertical size={21} />
         </nav>
       </div>
