@@ -12,7 +12,6 @@ export const Player = () => {
         id="player"
         src="https://www.youtube.com/embed/f5lX2Len6ys"
         title="Choice | Nicole pt. Xamã (CLIPE OFICIAL)"
-        frameborder="0"
         allowFullScreen
       />
     </div>
