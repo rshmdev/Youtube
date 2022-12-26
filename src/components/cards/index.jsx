@@ -23,21 +23,30 @@ export const Cards = ({ thumb, title, channel_name, id, setId }) => {
   }
 
   return (
-    <div className="card-related" onClick={handleClick}>
-      <div className="div-thumb">
-        <img src={thumb} width="100%" height="100%" className="thumbnail" />
+    <div className="card" onClick={handleClick}>
+      <div className="card__thumbnail">
+        <img
+          src={thumb}
+          width="100%"
+          height="100%"
+          className="card__thumbnail__image"
+        />
       </div>
-      <div className="div-texts">
-        <div className="title">
-          <h3 className="p-title">{title}</h3>
+      <div className="card__info">
+        <div className="card__title">
+          <span className="card__title__span">{title}</span>
         </div>
-        <div className="channelTitle">
-          <p className="p-channelTitle">{channel_name}</p>
+        <div className="card_channel_title">
+          <span className="card_channel_title__span">{channel_name}</span>
           <AiFillCheckCircle size={13} />
         </div>
 
         {views.map((view) => {
-          return <p className="p-views">{view.statistics.viewCount} views</p>;
+          return (
+            <span className="card__views">
+              {view.statistics.viewCount} views
+            </span>
+          );
         })}
       </div>
     </div>
