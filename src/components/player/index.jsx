@@ -12,7 +12,7 @@ export const Player = ({ id }) => {
         title="Choice | Nicole pt. Xamã (CLIPE OFICIAL)"
         allowFullScreen
       />
-      <div className="description-infos">
+      <div className="video__description">
         <Description id={id} />
       </div>
     </div>

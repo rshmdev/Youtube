@@ -6,6 +6,7 @@
   padding: 2rem;
   margin-inline: auto;
 }
+
 .video-container iframe {
   border: none;
 }
@@ -22,7 +23,7 @@
     border: none;
   }
 
-  .description-infos {
+  .video__description {
     padding: 0.7rem;
   }
 }
