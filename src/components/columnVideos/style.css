@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 548px) {
+  .column-videos {
+    width: 100vw;
+  }
+}
+
 .column-buttons {
   display: flex;
   gap: 1rem;
@@ -35,5 +41,5 @@
 .div-related {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.7rem;
 }

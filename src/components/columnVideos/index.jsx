@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Cards } from "../cards";
 import "./style.css";
 
-export const ColumnVideos = ({ id }) => {
+export const ColumnVideos = ({ id, setId }) => {
   const [relatedVideos, setRelatedVideos] = useState([]);
 
   const api_key = "AIzaSyD-6549T79-4njzjcwnUw3SwhVEOx1M5c8";
@@ -18,7 +18,7 @@ export const ColumnVideos = ({ id }) => {
 
   useEffect(() => {
     getRelatedVideos();
-  }, []);
+  }, [id]);
 
   console.log(relatedVideos);
 
@@ -34,10 +34,11 @@ export const ColumnVideos = ({ id }) => {
         {relatedVideos.map((video) => {
           return (
             <Cards
-              thumb={video.snippet.thumbnails.medium.url}
+              thumb={video.snippet.thumbnails.high.url}
               title={video.snippet.title}
               channel_name={video.snippet.channelTitle}
               id={video.id.videoId}
+              setId={setId}
             />
           );
         })}
