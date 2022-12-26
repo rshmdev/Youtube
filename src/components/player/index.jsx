@@ -1,6 +1,3 @@
-import axios from "axios";
-import { useState } from "react";
-import api from "../../services/api";
 import "./index.css";
 
 export const Player = () => {
