@@ -4,8 +4,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineSearch, AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 import "./style.css";
+import { useState } from "react";
 
 export const Header = ({ id, setId }) => {
+  const [inputId, setInputid] = useState("");
+
   return (
     <header>
       <div className="header-container">
@@ -18,11 +21,21 @@ export const Header = ({ id, setId }) => {
           <input
             className="input-search"
             type="text"
+            value={inputId}
+            onChange={(e) => {
+              setInputid(e.target.value);
+            }}
             name="search"
             id="input-search"
           />
           <div className="search-button">
-            <AiOutlineSearch size={22} />
+            <AiOutlineSearch
+              size={22}
+              onClick={() => {
+                setId(inputId);
+                setInputid("");
+              }}
+            />
           </div>
         </div>
 
