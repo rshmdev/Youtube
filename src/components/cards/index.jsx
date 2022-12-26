@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import "./style.css";
 
-export const Cards = ({ thumb, title, channel_name, id }) => {
+export const Cards = ({ thumb, title, channel_name, id, setId }) => {
   const api_key = "AIzaSyBHWijsHOKic7SKMRPNiAbK6yp2Oshljtc";
 
   const [views, setViews] = useState([]);
@@ -18,10 +18,12 @@ export const Cards = ({ thumb, title, channel_name, id }) => {
       });
   }, []);
 
-  console.log(views);
+  function handleClick() {
+    setId(id);
+  }
 
   return (
-    <div className="card-related">
+    <div className="card-related" onClick={handleClick}>
       <div className="div-thumb">
         <img src={thumb} width="100%" height="100%" className="thumbnail" />
       </div>
