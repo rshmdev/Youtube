@@ -1,0 +1,7 @@
+.video-container {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  padding: 2rem;
+  margin-inline: auto;
+}
