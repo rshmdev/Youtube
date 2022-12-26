@@ -1,3 +1,4 @@
+import { Description } from "../description";
 import "./index.css";
 
 export const Player = ({ id }) => {
@@ -11,6 +12,9 @@ export const Player = ({ id }) => {
         title="Choice | Nicole pt. Xamã (CLIPE OFICIAL)"
         allowFullScreen
       />
+      <div className="description-infos">
+        <Description id={id} />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,31 @@
 .video-container {
   display: flex;
+  flex-direction: column;
   width: 90%;
   max-width: 1000px;
   padding: 2rem;
   margin-inline: auto;
+}
+
+@media (max-width: 930px) {
+  .video-container {
+    width: 100vw;
+    padding: 0;
+  }
+
+  .video-container iframe {
+    height: 449.06px;
+    width: 100vw;
+    border: none;
+  }
+
+  .description-infos {
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .video-container iframe {
+    height: 300.06px;
+  }
 }
