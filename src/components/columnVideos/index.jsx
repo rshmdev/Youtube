@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import api from "../../services/api";
 import { Cards } from "../cards";
 import "./style.css";
 
-export const ColumnVideos = () => {
+export const ColumnVideos = ({ id }) => {
   const [relatedVideos, setRelatedVideos] = useState([]);
 
   const api_key = "AIzaSyD-6549T79-4njzjcwnUw3SwhVEOx1M5c8";
@@ -12,7 +11,7 @@ export const ColumnVideos = () => {
   function getRelatedVideos() {
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&regionCode=br&maxResults=20&relatedToVideoId=f5lX2Len6ys&type=video&key=${api_key}`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&regionCode=br&maxResults=20&relatedToVideoId=${id}&type=video&key=${api_key}`
       )
       .then((res) => setRelatedVideos(res.data.items));
   }
