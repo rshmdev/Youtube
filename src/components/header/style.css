@@ -21,7 +21,12 @@ header {
   width: 40%;
   height: 35px;
   display: flex;
+  align-items: center;
   position: relative;
+}
+
+.nav-user-responsive {
+  display: none;
 }
 
 .search-button {
@@ -32,8 +37,12 @@ header {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   right: 0;
-  top: 0;
+  top: 1;
   z-index: 9999;
+}
+
+.search-responsive {
+  display: none;
 }
 
 .search-button svg {
@@ -58,4 +67,35 @@ header {
 }
 .nav-user img {
   border-radius: 50%;
+}
+
+@media (max-width: 425px) {
+  .input-search {
+    display: none;
+  }
+
+  .search-button {
+    display: none;
+  }
+
+  .nav-logo svg {
+    display: none;
+  }
+
+  .search-resposive {
+    display: block;
+  }
+
+  .nav-user {
+    display: none;
+  }
+
+  .nav-user-responsive {
+    display: flex;
+  }
+
+  .div-input {
+    align-items: center;
+    justify-content: end;
+  }
 }

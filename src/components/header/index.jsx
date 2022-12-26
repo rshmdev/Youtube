@@ -3,6 +3,7 @@ import user from "../../assets/user.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineSearch, AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import "./style.css";
 import { useState } from "react";
 
@@ -18,6 +19,14 @@ export const Header = ({ id, setId }) => {
         </nav>
 
         <div className="div-input">
+          <AiOutlineSearch
+            className="search-responsive"
+            size={22}
+            onClick={() => {
+              setId(inputId);
+              setInputid("");
+            }}
+          />
           <input
             className="input-search"
             type="text"
@@ -43,6 +52,10 @@ export const Header = ({ id, setId }) => {
           <AiOutlineVideoCameraAdd size={21} />
           <IoNotificationsOutline size={21} />
           <img src={user} alt="user-logo" width={30} />
+        </nav>
+
+        <nav className="nav-user-responsive">
+          <BsThreeDotsVertical size={21} />
         </nav>
       </div>
     </header>
