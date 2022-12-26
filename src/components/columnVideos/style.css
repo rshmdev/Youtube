@@ -41,5 +41,5 @@
 .div-related {
   display: flex;
   flex-direction: column;
-  gap: 1.7rem;
+  gap: 0.6rem;
 }
