@@ -36,7 +36,7 @@ export const Description = ({ id }) => {
   }, [channelId]);
 
   return (
-    <div className="info-container">
+    <div className="description">
       {data?.map((item) => {
         return (
           <>
@@ -45,33 +45,43 @@ export const Description = ({ id }) => {
             <div>
               {channelInfo?.map((channel) => {
                 return (
-                  <nav className="nav-channel">
+                  <nav className="description__nav">
                     <img
                       width={40}
                       height={40}
                       src={channel.snippet.thumbnails.default.url}
                       alt="channel-logo"
                     />
-                    <div className="channel-actions">
-                      <div className="div-channel-info">
-                        <p className="p-channel-title">
+                    <div className="channel__info">
+                      <div className="channel__info__container">
+                        <p className="channel__info__title">
                           {channel.snippet.title}
                         </p>
-                        <p className="p-channel-subscriberCount">
+                        <p className="channel__info__subscriberCount">
                           {channel.statistics.subscriberCount} inscritos
                         </p>
                       </div>
 
-                      <button className="follow-button">Increver-se</button>
+                      <button className="channel__follow__button">
+                        Increver-se
+                      </button>
                     </div>
                   </nav>
                 );
               })}
             </div>
-            <div className={viewMore ? "video-info-full" : "video-info"}>
+            <div
+              className={
+                viewMore
+                  ? "video__description__full__container"
+                  : "video__description__container"
+              }
+            >
               <p
                 className={
-                  viewMore ? "p-description-full" : "p-description-video"
+                  viewMore
+                    ? "video__description__full_text"
+                    : "video__description__text"
                 }
               >
                 {item.snippet.description}
@@ -80,7 +90,7 @@ export const Description = ({ id }) => {
                 onClick={() => {
                   setViewMore(!viewMore);
                 }}
-                className="button-view-more"
+                className="video__description__button__viewMore"
               >
                 {viewMore ? "Ver menos..." : "Ver mais..."}
               </a>
