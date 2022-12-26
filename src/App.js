@@ -5,14 +5,14 @@ import { Header } from "./components/header";
 import { Player } from "./components/player";
 
 function App() {
-  const [id, setId] = useState("");
+  const [id, setId] = useState("f5lX2Len6ys");
 
   return (
     <>
-      <Header />
+      <Header id={id} setId={setId} />
       <div className="App">
-        <Player />
-        <ColumnVideos />
+        <Player id={id} />
+        <ColumnVideos id={id} />
       </div>
     </>
   );
