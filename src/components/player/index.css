@@ -6,6 +6,9 @@
   padding: 2rem;
   margin-inline: auto;
 }
+.video-container iframe {
+  border: none;
+}
 
 @media (max-width: 930px) {
   .video-container {
