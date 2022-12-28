@@ -2,6 +2,63 @@
   display: flex;
 }
 
+.video__description {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0;
+  margin-inline: auto;
+}
+
+.video__comments {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0;
+  margin-inline: auto;
+}
+.Main-div {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended__videos {
+  width: 60vw;
+}
+
+@media (max-width: 1024px) {
+  .recommended__videos {
+    width: 98vw;
+  }
+
+  .Main-div {
+    width: 98vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .Main-div {
+    width: 100%;
+  }
+
+  .recommended__videos {
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .video__description {
+    padding: 0;
+  }
+
+  .Main-div {
+    width: 100%;
+  }
+
+  .recommended__videos {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1024px) {
   .App {
     flex-direction: column;

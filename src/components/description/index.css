@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   margin-top: 1rem;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--description);
   border-radius: 20px;
 }
 .description__nav {
@@ -47,10 +47,137 @@
   gap: 2rem;
 }
 
+.video__actions {
+  display: flex;
+  gap: 15%;
+}
+
+.button__like {
+  width: 150px;
+  display: flex;
+  color: var(--text);
+  background-color: var(--button);
+  height: 36px;
+  border-radius: 20px;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+.button__like__div {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  justify-content: center;
+}
+
+.button__deslike__div {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+}
+
+.button__like__div:hover {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button__deslike__div:hover {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-action-buttons {
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.share__button {
+  width: 134px;
+  height: 36px;
+  border: none;
+  gap: 0.8rem;
+  display: flex;
+  color: var(--text);
+  background-color: var(--button);
+  align-items: center;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 0;
+}
+
+.share__button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.save__button {
+  width: 118px;
+  height: 36px;
+  border: none;
+  display: flex;
+  color: var(--text);
+  background-color: var(--button);
+  gap: 0.8rem;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 0;
+}
+.save__button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.clip__button {
+  width: 87px;
+  color: var(--text);
+  background-color: var(--button);
+  gap: 0.3rem;
+  height: 36px;
+  border: none;
+  display: none;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 0;
+}
+
+.clip__button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu__button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  display: flex;
+  color: var(--text);
+  background-color: var(--button);
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  padding: 0;
+}
+
+.menu__button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .channel__follow__button {
   border-radius: 20px;
-  background-color: black;
-  color: white;
+  background-color: var(--followButton);
+  color: var(--followbuttonText);
+  border: none;
+  width: 100px;
   font-weight: bold;
   height: 36px;
 }
@@ -77,17 +204,111 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--description);
   border-radius: 20px;
   margin-top: 1rem;
 }
 
 .video__description__button__viewMore {
-  position: absolute;
-  bottom: 0.5rem;
   font-weight: bolder;
+  white-space: nowrap;
   font-size: 15px;
 
-  right: 1.8rem;
   cursor: pointer;
+}
+
+.view__more__div {
+  background-color: var(--description);
+  border: none;
+
+  opacity: 1;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0.5rem;
+  right: 2rem;
+  width: 90px;
+  height: 20px;
+  z-index: 99999;
+}
+
+@media (max-width: 1380px) {
+  .save__button {
+    display: none;
+  }
+}
+
+@media (max-width: 1220px) {
+  .share__button {
+    display: none;
+  }
+}
+
+@media (max-width: 1133px) {
+  .video__actions {
+    flex-direction: column;
+  }
+
+  .video__actions {
+    gap: 2rem;
+  }
+
+  .save__button {
+    display: flex;
+  }
+
+  .clip__button {
+    display: flex;
+  }
+
+  .share__button {
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .video__actions {
+    flex-direction: initial;
+    gap: 5%;
+  }
+
+  .save__button {
+    display: none;
+  }
+}
+
+@media (max-width: 840px) {
+  .clip__button {
+    display: none;
+  }
+
+  .share__button {
+    display: none;
+  }
+
+  .nav-action-buttons {
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .video__actions {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .share__button {
+    display: flex;
+  }
+}
+
+@media (max-width: 373px) {
+  .share__button {
+    display: none;
+  }
+
+  .nav-action-buttons {
+    justify-content: space-between;
+  }
 }
