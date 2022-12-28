@@ -291,6 +291,10 @@
     flex-wrap: nowrap;
     overflow: auto;
   }
+
+  .view__more__div {
+    right: 0;
+  }
 }
 
 @media (max-width: 560px) {
