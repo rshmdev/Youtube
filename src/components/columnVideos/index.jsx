@@ -28,15 +28,20 @@ export const ColumnVideos = ({ id, setId, tags }) => {
     });
   }, [divScroll]);
 
-  const api_key_3 = "AIzaSyBSNIdtHAw7hTO8Sebh2aPAhyLtck0BzjA";
+  const api_key_3 = "AIzaSyDQgLTMiXECALyQGjE-k1pVyUQh2hRirog";
   const api_key_6 = "AIzaSyDU3EHrFf-hep_2JGtY8qh6g6co5SaR_zg";
 
   function getRelatedVideos() {
+    if (id === "") {
+      alert("Digite algum id");
+      return;
+    }
     axios
       .get(
         `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&relatedToVideoId=${id}&type=video&key=${api_key_3}`
       )
-      .then((res) => setRelatedVideos(res.data.items));
+      .then((res) => setRelatedVideos(res.data.items))
+      .catch((err) => alert("Id nao encontrado"));
   }
 
   useEffect(() => {
@@ -86,7 +91,7 @@ export const ColumnVideos = ({ id, setId, tags }) => {
         </div>
       </div>
       <div className="div-related">
-        {relatedVideos.map((video) => {
+        {relatedVideos?.map((video) => {
           return (
             <Cards
               thumb={video.snippet.thumbnails.high.url}

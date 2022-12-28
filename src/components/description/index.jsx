@@ -17,6 +17,9 @@ export const Description = ({ id, setTags }) => {
   const [viewMore, setViewMore] = useState(false);
 
   useEffect(() => {
+    if (id === "") {
+      return alert("Digite algum id");
+    }
     axios
       .get(
         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${id}&key=${api_key_1}`
@@ -35,7 +38,8 @@ export const Description = ({ id, setTags }) => {
       )
       .then((res) => {
         setChannelInfo(res.data.items);
-      });
+      })
+      .catch((err) => alert("Id nao encontrado"));
   }, [channelId]);
 
   return (

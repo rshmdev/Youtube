@@ -8,13 +8,18 @@ export const Cards = ({ thumb, title, channel_name, id, setId }) => {
   const [views, setViews] = useState([]);
 
   useEffect(() => {
+    if (id === "") {
+      alert("Digite um id valido");
+      return;
+    }
     axios
       .get(
         `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${api_key_4}`
       )
       .then((res) => {
         setViews(res.data.items);
-      });
+      })
+      .catch((err) => alert("Id nao encontrado"));
   }, []);
 
   function handleClick() {

@@ -1,9 +1,8 @@
 import logo from "../../assets/logo.png";
-import logoDark from "../../assets/logo-dark.png";
 import user from "../../assets/user.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineSearch, AiOutlineVideoCameraAdd } from "react-icons/ai";
-import { IoNotificationsOutline } from "react-icons/io5";
+import { IoNotificationsOutline, IoArrowBackCircle } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import "./style.css";
 import { useEffect, useState } from "react";
@@ -41,8 +40,6 @@ export const Header = ({ setId }) => {
 
   //custom hook
   function useWindowSize() {
-    // Initialize state with undefined width/height so server and client renders match
-    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
     const [windowSize, setWindowSize] = useState({
       width: undefined,
       height: undefined,
@@ -75,9 +72,6 @@ export const Header = ({ setId }) => {
 
   //condição para renderizar header diferente abaixo de 660px
   useEffect(() => {
-    if (width < 660) {
-      setSearch(true);
-    }
     if (width > 660) {
       setSearch(false);
     }
@@ -88,15 +82,26 @@ export const Header = ({ setId }) => {
       <header>
         <div className="header">
           <div className="header__input">
-            <AiOutlineSearch
-              className="input__icon__mobile"
-              size={22}
-              onClick={() => {
-                setSearch(!search);
-              }}
-            />
+            {search ? (
+              <IoArrowBackCircle
+                className="input__icon__mobile__back"
+                size={40}
+                onClick={() => {
+                  setSearch(!search);
+                }}
+              />
+            ) : (
+              <AiOutlineSearch
+                className="input__icon__mobile"
+                size={22}
+                onClick={() => {
+                  setSearch(!search);
+                }}
+              />
+            )}
             <input
-              className={"header_input_field"}
+              className="header_input_field"
+              style={search ? { display: "flex" } : { display: "none" }}
               type="text"
               value={inputId}
               placeholder="Digite o id do video"
@@ -105,6 +110,16 @@ export const Header = ({ setId }) => {
               }}
               name="search"
               id="input-search"
+            />
+
+            <AiOutlineSearch
+              className="search-icon-mobile-action"
+              style={search ? { display: "flex" } : ""}
+              size={22}
+              onClick={() => {
+                setId(inputId);
+                setInputid("");
+              }}
             />
 
             <AiOutlineSearch
@@ -170,53 +185,4 @@ export const Header = ({ setId }) => {
       </header>
     );
   }
-  // <header>
-  //   <div className={"header"}>
-  //     <nav className="header__nav__logo">
-  //       <RxHamburgerMenu size={21} />
-  //       <img width={90} src={logo} alt="youtube-logo" />
-  //     </nav>
-
-  //     <div className="header__input">
-  //       <AiOutlineSearch
-  //         className="input__icon__mobile"
-  //         size={22}
-  //         onClick={() => {
-  //           setId(inputId);
-  //           setInputid("");
-  //         }}
-  //       />
-  //       <input
-  //         className={"header_input_field"}
-  //         type="text"
-  //         value={inputId}
-  //         placeholder="Digite o id do video"
-  //         onChange={(e) => {
-  //           setInputid(e.target.value);
-  //         }}
-  //         name="search"
-  //         id="input-search"
-  //       />
-
-  //       <AiOutlineSearch
-  //         className="search-icon"
-  //         size={22}
-  //         onClick={() => {
-  //           setId(inputId);
-  //           setInputid("");
-  //         }}
-  //       />
-  //     </div>
-  //     <DarkTheme light={lightTheme} dark={darkTheme} />
-  //     <nav className="header__nav__user">
-  //       <AiOutlineVideoCameraAdd size={21} />
-  //       <IoNotificationsOutline size={21} />
-  //       <img src={user} alt="user-logo" width={30} />
-  //     </nav>
-
-  //     <nav className="header__nav__user__mobile">
-  //       <BsThreeDotsVertical size={21} />
-  //     </nav>
-  //   </div>
-  // </header>
 };

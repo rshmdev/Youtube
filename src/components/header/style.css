@@ -31,6 +31,18 @@ header {
 
 .input__icon__mobile {
   display: none;
+  color: var(--text);
+}
+
+.input__icon__mobile__back {
+  display: none;
+  color: var(--text);
+}
+
+.search-icon-mobile-action {
+  display: none;
+  position: absolute;
+  right: 7rem;
 }
 
 .search-icon {
@@ -71,12 +83,20 @@ header {
   .input__icon__mobile {
     display: flex;
     position: absolute;
-    right: 6rem;
+    right: 1rem;
+    z-index: 9999;
+  }
+
+  .input__icon__mobile__back {
+    display: flex;
+    position: absolute;
+    right: 1rem;
     z-index: 9999;
   }
 
   .header_input_field {
     position: relative;
+    display: none;
   }
 
   .header__input {
@@ -104,5 +124,19 @@ header {
 
   .header__nav__user__mobile {
     display: flex;
+  }
+
+  .search-icon-mobile-action {
+    right: 4rem;
+  }
+
+  .header__input {
+    width: 80%;
+    align-items: center;
+    padding-left: 0.3rem;
+  }
+
+  .input__icon__mobile__back {
+    right: 0rem;
   }
 }
