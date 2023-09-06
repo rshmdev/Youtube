@@ -1,10 +1,10 @@
 
 ```
-# Clone do YouTube
+Clone do YouTube
 
 Este é um clone funcional do YouTube, criado com React e a API do YouTube v3.
 
-## Funcionalidades
+ Funcionalidades
 
 - Player de vídeo
 - Busca de vídeo pelo ID
@@ -15,7 +15,7 @@ Este é um clone funcional do YouTube, criado com React e a API do YouTube v3.
 - Quantidade de likes
 - Modo escuro
 
-## Configuração
+ Configuração
 
 Para usar este aplicativo, você precisará de várias chaves da API do YouTube v3. Adicione suas chaves em um arquivo `.env` na raiz do projeto, como mostrado abaixo:
 
@@ -29,13 +29,13 @@ REACT_APP_YOUTUBE_API_KEY_FIFTEEN=sua_chave_aqui
 
 Substitua `sua_chave_aqui` pelas suas chaves da API do YouTube.
 
-## Uso
+ Uso
 
 Para iniciar o aplicativo, execute os seguintes comandos:
 
 ```
-npm install
-npm start
+#npm install
+#npm start
 ```
 
 Isso iniciará o aplicativo em `http://localhost:3000`.
