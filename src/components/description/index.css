@@ -1,7 +1,13 @@
 .description {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.7rem;
+}
+
+h3 {
+  font-family: "YouTube Sans", "Roboto", sans-serif;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
 }
 
 .video__description__container {
@@ -36,6 +42,7 @@
 
 .channel__info__title {
   font-weight: bold;
+  flex-wrap: nowrap;
 }
 
 .channel__info__subscriberCount {
@@ -174,11 +181,16 @@
 
 .channel__follow__button {
   border-radius: 20px;
-  background-color: var(--followButton);
-  color: var(--followbuttonText);
+  font-family: "YouTube Sans", "Roboto", sans-serif;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  background-color: var(--button);
+  color: var(--text);
   border: none;
   width: 100px;
-  font-weight: bold;
   height: 36px;
 }
 
@@ -213,7 +225,9 @@
   font-weight: bolder;
   white-space: nowrap;
   font-size: 15px;
-
+  background-color: transparent;
+  border: none;
+  color: var(--text);
   cursor: pointer;
 }
 

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 export const Cards = ({ thumb, title, channel_name, id, setId }) => {
-  const api_key_4 = "AIzaSyALzvepnC31IpzCw9ZOZzGMHW0PEke8tdY";
-
   const [views, setViews] = useState([]);
 
   useEffect(() => {
@@ -14,7 +12,7 @@ export const Cards = ({ thumb, title, channel_name, id, setId }) => {
     }
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${api_key_4}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${process.env.YOUTUBE_API_KEY_5}`
       )
       .then((res) => {
         setViews(res.data.items);
@@ -31,6 +29,7 @@ export const Cards = ({ thumb, title, channel_name, id, setId }) => {
       <div className="card__thumbnail">
         <img
           src={thumb}
+          alt="thumbnail"
           width="100%"
           height="100%"
           className="card__thumbnail__image"

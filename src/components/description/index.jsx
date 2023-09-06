@@ -7,10 +7,6 @@ import { MdPlaylistAdd } from "react-icons/md";
 import "./index.css";
 
 export const Description = ({ id, setTags }) => {
-  const api_key_1 = "AIzaSyDMgio7I9wVc8jz6beno8JzXD51NB0JMTU";
-
-  const api_key_2 = "AIzaSyDENgAQrQlTvOVwccptgB-lfO4q5vTRYXU";
-
   const [data, setData] = useState([]);
   const [channelId, setChannelId] = useState("");
   const [channelInfo, setChannelInfo] = useState([]);
@@ -22,25 +18,57 @@ export const Description = ({ id, setTags }) => {
     }
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${id}&key=${api_key_1}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${id}&key=${process.env.YOUTUBE_API_KEY_1}`
       )
       .then((res) => {
         setData(res.data.items);
         setChannelId(res.data.items[0]?.snippet.channelId);
         setTags(res.data.items[0]?.snippet.tags);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&part=statistics%20&id=${channelId}&key=${api_key_2}`
+        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&part=statistics%20&id=${channelId}&key=${process.env.YOUTUBE_API_KEY_2}`
       )
       .then((res) => {
         setChannelInfo(res.data.items);
       })
       .catch((err) => alert("Id nao encontrado"));
   }, [channelId]);
+
+  function formatSubscriberCount(subscriberCount) {
+    if (subscriberCount >= 1000000) {
+      const millions = (subscriberCount / 1000000).toFixed(1).replace(".", ",");
+      return millions + " mi de inscritos";
+    } else if (subscriberCount >= 1000) {
+      const thousands = (subscriberCount / 1000).toFixed(1).replace(".", ",");
+      return thousands + " mil de inscritos";
+    } else {
+      return subscriberCount + " inscritos";
+    }
+  }
+
+  function formatLikeCount(likeCount) {
+    if (likeCount >= 1000000) {
+      const millions = (likeCount / 1000000).toFixed();
+      return millions + " mi";
+    } else if (likeCount >= 1000) {
+      const thousands = (likeCount / 1000).toFixed();
+      return thousands + " mil";
+    } else {
+      return likeCount;
+    }
+  }
+
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + "...";
+    }
+    return text;
+  }
 
   return (
     <div className="description">
@@ -54,23 +82,25 @@ export const Description = ({ id, setTags }) => {
                 return (
                   <nav className="description__nav">
                     <img
-                      width={40}
-                      height={40}
+                      width={45}
+                      height={45}
                       src={channel.snippet.thumbnails.default.url}
                       alt="channel-logo"
                     />
                     <div className="channel__info">
                       <div className="channel__info__container">
                         <p className="channel__info__title">
-                          {channel.snippet.title}
+                          {truncateText(channel.snippet.title, 20)}
                         </p>
                         <p className="channel__info__subscriberCount">
-                          {channel.statistics.subscriberCount} inscritos
+                          {formatSubscriberCount(
+                            channel.statistics.subscriberCount
+                          )}
                         </p>
                       </div>
 
                       <button className="channel__follow__button">
-                        Increver-se
+                        <span>Increver-se</span>
                       </button>
                     </div>
                   </nav>
@@ -82,7 +112,9 @@ export const Description = ({ id, setTags }) => {
                   <button className="button__like">
                     <div className="button__like__div">
                       <AiOutlineLike size={20} />{" "}
-                      {data.map((like) => like.statistics.likeCount)}
+                      {data.map((like) =>
+                        formatLikeCount(like.statistics.likeCount)
+                      )}
                     </div>
                     | |
                     <div className="button__deslike__div">
@@ -125,14 +157,14 @@ export const Description = ({ id, setTags }) => {
                 {item.snippet.description}
               </p>
               <div className="view__more__div">
-                <a
+                <button
                   onClick={() => {
                     setViewMore(!viewMore);
                   }}
                   className="video__description__button__viewMore"
                 >
                   {viewMore ? "Ver menos..." : "Ver mais..."}
-                </a>
+                </button>
               </div>
             </div>
           </>

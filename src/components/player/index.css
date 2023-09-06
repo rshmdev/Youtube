@@ -3,6 +3,7 @@
   position: relative;
   flex-direction: column;
   width: 93%;
+  border-radius: 10px;
   max-width: 1000px;
   margin-top: 1.5rem;
   margin-inline: auto;
@@ -29,6 +30,7 @@
 
 .video-container iframe {
   border: none;
+  border-radius: 10px;
 }
 
 @media (max-width: 930px) {

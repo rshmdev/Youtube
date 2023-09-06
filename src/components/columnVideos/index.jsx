@@ -28,17 +28,15 @@ export const ColumnVideos = ({ id, setId, tags }) => {
     });
   }, [divScroll]);
 
-  const api_key_3 = "AIzaSyDQgLTMiXECALyQGjE-k1pVyUQh2hRirog";
-  const api_key_6 = "AIzaSyDU3EHrFf-hep_2JGtY8qh6g6co5SaR_zg";
-
   function getRelatedVideos() {
-    if (id === "") {
-      alert("Digite algum id");
+    if (id === "" || tags === undefined) {
+      alert("Video não encontrado");
+      setId("f5lX2Len6ys");
       return;
     }
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&relatedToVideoId=${id}&type=video&key=${api_key_3}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${tags[0]}&maxResults=20&type=video&key=${process.env.YOUTUBE_API_KEY_3}`
       )
       .then((res) => setRelatedVideos(res.data.items))
       .catch((err) => alert("Id nao encontrado"));
@@ -46,7 +44,8 @@ export const ColumnVideos = ({ id, setId, tags }) => {
 
   useEffect(() => {
     getRelatedVideos();
-  }, [id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, tags]);
 
   return (
     <div className="column-videos">
@@ -67,14 +66,14 @@ export const ColumnVideos = ({ id, setId, tags }) => {
           }
         >
           <button onClick={() => getRelatedVideos()}>Todos</button>
-          {tags.map((tag) => {
+          {tags?.map((tag) => {
             return (
               <button
                 value={tag}
                 onClick={(e) => {
                   axios
                     .get(
-                      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${e.target.value}&maxResults=20&type=video&key=${api_key_6}`
+                      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${e.target.value}&maxResults=20&type=video&key=${process.env.YOUTUBE_API_KEY_4}`
                     )
                     .then((res) => {
                       setRelatedVideos(res.data.items);

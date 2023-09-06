@@ -1,9 +1,10 @@
 .App {
   display: flex;
+  padding-top: 60px;
 }
 
 .video__description {
-  width: 90%;
+  width: 92%;
   max-width: 1000px;
   margin: 0;
   margin-inline: auto;
@@ -22,7 +23,7 @@
 }
 
 .recommended__videos {
-  width: 60vw;
+  width: 35vw;
 }
 
 @media (max-width: 1024px) {
@@ -63,7 +64,6 @@
   .App {
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
     align-items: center;
   }
 }
