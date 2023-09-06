@@ -33,10 +33,10 @@ Substitua `sua_chave_aqui` pelas suas chaves da API do YouTube.
 
 Para iniciar o aplicativo, execute os seguintes comandos:
 
-```
-#npm install
-#npm start
-```
+
+- npm install
+- npm start
+
 
 Isso iniciará o aplicativo em `http://localhost:3000`.
 
