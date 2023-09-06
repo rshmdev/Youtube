@@ -36,7 +36,11 @@ export const ColumnVideos = ({ id, setId, tags }) => {
     }
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${tags[0]}&maxResults=20&type=video&key=${process.env.YOUTUBE_API_KEY_3}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${
+          tags[0] ? tags[0] : "omeleteve"
+        }&maxResults=20&type=video&key=${
+          process.env.REACT_APP_YOUTUBE_API_KEY_THIRD
+        }`
       )
       .then((res) => setRelatedVideos(res.data.items))
       .catch((err) => alert("Id nao encontrado"));
@@ -73,7 +77,7 @@ export const ColumnVideos = ({ id, setId, tags }) => {
                 onClick={(e) => {
                   axios
                     .get(
-                      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${e.target.value}&maxResults=20&type=video&key=${process.env.YOUTUBE_API_KEY_4}`
+                      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${e.target.value}&maxResults=20&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY_FOURTH}`
                     )
                     .then((res) => {
                       setRelatedVideos(res.data.items);

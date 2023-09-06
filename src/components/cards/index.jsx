@@ -12,7 +12,7 @@ export const Cards = ({ thumb, title, channel_name, id, setId }) => {
     }
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${process.env.YOUTUBE_API_KEY_5}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_FIFTEEN}`
       )
       .then((res) => {
         setViews(res.data.items);

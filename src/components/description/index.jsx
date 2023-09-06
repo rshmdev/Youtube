@@ -18,25 +18,26 @@ export const Description = ({ id, setTags }) => {
     }
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${id}&key=${process.env.YOUTUBE_API_KEY_1}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_FIRST}`
       )
       .then((res) => {
         setData(res.data.items);
         setChannelId(res.data.items[0]?.snippet.channelId);
         setTags(res.data.items[0]?.snippet.tags);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&part=statistics%20&id=${channelId}&key=${process.env.YOUTUBE_API_KEY_2}`
-      )
-      .then((res) => {
-        setChannelInfo(res.data.items);
-      })
-      .catch((err) => alert("Id nao encontrado"));
+    if (channelId) {
+      axios
+        .get(
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&part=statistics%20&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_SECOND}`
+        )
+        .then((res) => {
+          setChannelInfo(res.data.items);
+        })
+        .catch((err) => alert("Id nao encontrado"));
+    }
   }, [channelId]);
 
   function formatSubscriberCount(subscriberCount) {
