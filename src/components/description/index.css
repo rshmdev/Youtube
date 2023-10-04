@@ -195,7 +195,7 @@ h3 {
 }
 
 .video__description__text {
-  max-width: 710px;
+  max-width: 95%;
   font-size: 15px;
   line-height: 1.7rem;
   margin-left: 1rem;
@@ -205,7 +205,7 @@ h3 {
 }
 
 .video__description__full_text {
-  max-width: 750px;
+  max-width: 98%;
   margin-left: 1rem;
   font-size: 15px;
   line-height: 1.7rem;

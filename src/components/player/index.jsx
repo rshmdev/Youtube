@@ -28,7 +28,7 @@ export const Player = ({ id, isTheater, setIsTheater }) => {
 
       <iframe
         width="100%"
-        height="480"
+        height="680"
         id="video"
         seamless="seamless"
         sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
