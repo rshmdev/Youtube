@@ -6,7 +6,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/rshmdev/Youtube?style=for-the-badge)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/rshmdev/Youtube?style=for-the-badge)
 
-<img src="imagem.png" alt="Exemplo imagem">
+<img src="Youtube.png" alt="Imagem do projeto">
 
 > Este é o meu mais recente empreendimento - um clone totalmente funcional do YouTube. Cada linha de código foi meticulosamente escrita para proporcionar uma experiência autêntica e envolvente, permitindo aos usuários explorar e compartilhar vídeos de forma intuitiva. Explore e vivencie a próxima geração de streaming de vídeo.
 
